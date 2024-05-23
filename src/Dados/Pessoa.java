@@ -38,11 +38,12 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    public Pessoa(String nome, String endereco, String telefone, String email) {
+    public Pessoa(String nome, String endereco, String telefone, String email,String peso , String altura, String sexo, String plano, String objetivo, String idade) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.email = email;
+        this.idade = idade;
     }
 
     public String getNome() {
