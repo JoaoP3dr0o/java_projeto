@@ -8,11 +8,11 @@ import Banco.AcessoBD;
 import Dados.Login;
 import javax.swing.JOptionPane;
 
-public class Logar extends javax.swing.JFrame {
+public class LogarUsuario extends javax.swing.JFrame {
 
     private Principal p;
     
-    public Logar() {
+    public LogarUsuario() {
         initComponents();
         p = new Principal();
     }
@@ -29,6 +29,7 @@ public class Logar extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         campoSenha = new javax.swing.JPasswordField();
         campoLogin = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -39,7 +40,6 @@ public class Logar extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(140, 49, 49));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        campoSenha.setBackground(new java.awt.Color(255, 255, 255));
         campoSenha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         campoSenha.setBorder(null);
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -49,10 +49,13 @@ public class Logar extends javax.swing.JFrame {
         });
         jPanel1.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 510, 330, 40));
 
-        campoLogin.setBackground(new java.awt.Color(255, 255, 255));
         campoLogin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         campoLogin.setBorder(null);
         jPanel1.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 330, 40));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        jLabel1.setText("Usuário");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, -1, 40));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Telas/login.jpg"))); // NOI18N
@@ -136,6 +139,7 @@ public class Logar extends javax.swing.JFrame {
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

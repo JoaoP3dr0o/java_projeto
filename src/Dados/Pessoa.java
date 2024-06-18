@@ -1,6 +1,7 @@
 package Dados;
 
-public class Pessoa {
+public class Pessoa 
+{
     private String nome;
     private String endereco;
     private String telefone;
@@ -12,7 +13,8 @@ public class Pessoa {
     private String objetivo;
     private String idade;
 
-    public Pessoa() {
+    public Pessoa()
+    {
         this.nome = null;
         this.endereco = null;
         this.telefone = null;
@@ -25,7 +27,8 @@ public class Pessoa {
         this.idade = null;
     }
 
-    public Pessoa(String nome, String endereco, String telefone, String email, String peso, String altura, String sexo, String plano, String objetivo, String idade) {
+    public Pessoa(String nome, String endereco, String telefone, String email, String peso, String altura, String sexo, String plano, String objetivo, String idade) 
+    {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -35,14 +38,6 @@ public class Pessoa {
         this.sexo = sexo;
         this.plano = plano;
         this.objetivo = objetivo;
-        this.idade = idade;
-    }
-
-    public Pessoa(String nome, String endereco, String telefone, String email,String peso , String altura, String sexo, String plano, String objetivo, String idade) {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.email = email;
         this.idade = idade;
     }
 

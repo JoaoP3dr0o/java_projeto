@@ -26,9 +26,9 @@ public class PessoaBD
         {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO dados(nome,endereco,telefone,email) "
+            String sql = "INSERT INTO dados(nome,endereco,telefone,email,altura,peso,plano,objetivo,sexo,idade) "
             		   + "VALUES ('"+ pessoa.getNome() + "','" + pessoa.getEndereco() + "', '" 
-            		   + pessoa.getTelefone() + "', '" + pessoa.getEmail() + "')";
+            		   + pessoa.getTelefone() + "', '" + pessoa.getEmail() + "','" + pessoa.getAltura() + "','" + pessoa.getPeso() + "','" + pessoa.getPlano() + "','" + pessoa.getObjetivo() + "','" + pessoa.getSexo() + "','" + pessoa.getIdade() + "')";
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
            
@@ -70,7 +70,9 @@ public class PessoaBD
             
             String sql = "UPDATE dados SET nome='"+pessoa.getNome()+"'," +
                          "endereco='"+pessoa.getEndereco()+"', telefone='"+pessoa.getTelefone()+"'," +
-                         "email='"+pessoa.getEmail()+"' WHERE nome='"+nomeAlterar+"';";
+                         "email='"+pessoa.getEmail()+"'," +
+                         "peso='"+pessoa.getPeso()+"'," +
+                         "plano='"+pessoa.getPlano()+"' WHERE nome='"+nomeAlterar+"';";
                     
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -117,6 +119,9 @@ public class PessoaBD
 				dados += "\n"+res.getString("endereco");
 				dados += "\n"+res.getString("telefone");
 				dados += "\n"+res.getString("email");
+                                dados += "\n"+res.getString("peso");
+                                dados += "\n"+res.getString("plano");
+                                dados += "\n"+res.getString("altura");
 				dados += "\n-----------------------------------------";				
             }
             

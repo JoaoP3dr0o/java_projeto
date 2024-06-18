@@ -1,6 +1,6 @@
 package Main;
 
-import Telas.Logar;
+import Telas.EscolherTela;
 
 public class Main
 {
@@ -8,7 +8,7 @@ public class Main
     public static void main(String[] args)
     {
         
-        Logar log = new Logar();
+        EscolherTela log = new EscolherTela();
         log.setVisible(true);
     }
 

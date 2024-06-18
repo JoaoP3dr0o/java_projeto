@@ -13,55 +13,76 @@ public class AcessoBD
 
     Connection connection = null;
 
-    public boolean verificaAcesso(Login login)
+    public boolean verificaAcesso(Login login) 
     {
-    	
-    	connection = Conexao.getInstance().getConnection();
-        System.out.println("Conectado e verificando acesso");
-        Statement stmt = null;
-        
-        boolean status = true;
-        
-        try
+    Connection connection = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+ 
+    try 
+    {
+        connection = Conexao.getInstance().getConnection();
+ 
+        // Execute the SQL query
+        String sql = "SELECT * FROM usuarios WHERE nome = '" + login.getNome() + "' AND senha = '" + login.getSenha() + "'";
+        stmt = connection.createStatement();
+        rs = stmt.executeQuery(sql);
+ 
+        // Check if a single row is found (valid login)
+        if (rs.next()) 
         {
-            stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
-            
-            while(res.next())
-			{
-			   if(login.getNome().compareTo(res.getString("nome"))==0 && login.getSenha().compareTo(res.getString("senha"))==0)
-			   {
-				   status = true;
-				   
-			   }
-			   else
-			   {
-				   status = false;
-			   }
-			   
-			}
-            
+            return true;
         } 
-        catch (SQLException e)
+        else 
         {
-            System.out.println(e.getMessage());
-            status = false;
+            return false;
         }
-        finally
+    } 
+        catch (SQLException e) 
         {
-          
-            try
+        System.out.println("Error verifying access: " + e.getMessage());
+        return false;
+        } 
+        finally 
+        {
+        // Close resources in reverse order
+        if (rs != null) 
+        {
+            try 
+            {
+                rs.close();
+            } 
+            catch (SQLException e) 
+            {
+                System.out.println("Error closing ResultSet: " + e.getMessage());
+            }
+        }
+        if (stmt != null) 
+        {
+            try 
             {
                 stmt.close();
-                connection.close();
-            }
-            catch (SQLException e)
+            } 
+            catch (SQLException e) 
             {
-                System.out.println("Erro ao desconectar" + e.getMessage());
+                System.out.println("Error closing Statement: " + e.getMessage());
             }
         }
-    	
-        return status;
+        if (connection != null) 
+        {
+            try 
+            {
+                connection.close();
+            } 
+            catch (SQLException e) 
+            {
+                System.out.println("Error closing connection: " + e.getMessage());
+            }
+        }
+
+ 
+        }
     }
-    
 }
+    
+
